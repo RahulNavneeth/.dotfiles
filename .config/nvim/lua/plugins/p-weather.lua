@@ -1,0 +1,5 @@
+-- require('weather').setup({
+--     latitude = 13.04,
+--     longitude = 80.20,
+--     celsius = true,
+-- })
