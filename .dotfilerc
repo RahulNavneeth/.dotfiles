@@ -9,4 +9,5 @@
 .config/alacritty
 .config/karabiner
 .config/sketchybar
+.config/nixpkgs
 .local/bin/scripts

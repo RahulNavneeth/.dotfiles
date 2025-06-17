@@ -12,8 +12,8 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=38 color=0x33FFFFFF blur_radius=20 blur_brightness=0.8
-https://monkeytype.com/login
+sketchybar --bar position=top height=38 color=0xFF000000 blur_radius=20 blur_brightness=0.8
+
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
 # For a full list of all available item properties see:
@@ -23,10 +23,10 @@ default=(
   padding_left=0
   padding_right=0
   padding_top=10
-  icon.font="MesloLGL Nerd Font:Bold:17.0"
-  label.font="MesloLGL Nerd Font:Bold:14.0"
-  icon.color=0xff000000
-  label.color=0xff000000
+  icon.font="SF Mono:Bold:17.0"
+  label.font="SF Mono:Bold:14.0"
+  icon.color=0xffFFFFFF
+  label.color=0xffFFFFFF
   label.padding_left=4
   label.padding_right=4
 )

@@ -33,11 +33,6 @@ api.nvim_set_keymap('n', 'cls', ":noh<CR>", { noremap = true })
 
 -- vim.api.nvim_set_keymap('n', '<space>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
--- OBS
-vim.keymap.set("n", "<space>of", vim.cmd.ObsidianQuickSwitch)
-vim.keymap.set("n", "<space>og", vim.cmd.ObsidianSearch)
-vim.keymap.set("n", "gs", vim.cmd.ObsidianFollowLink)
-vim.keymap.set("n", "gs", vim.cmd.ObsidianFollowLink)
 
 vim.keymap.set({ 'n', 'v', 'x' }, 'g-', function()
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-x>', true, false, true), 'n', true)
@@ -46,8 +41,5 @@ end, { noremap = true, silent = true })
 vim.keymap.set({ 'n', 'v', 'x' }, 'g+', function()
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-a>', true, false, true), 'n', true)
 end, { noremap = true, silent = true })
-
---open flutter tools commands
-vim.keymap.set('n', '<space>fl', require('telescope').extensions.flutter.commands, { desc = 'Open command Flutter' })
 
 vim.api.nvim_command('command! W noautocmd w')

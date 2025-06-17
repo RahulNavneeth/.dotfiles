@@ -1,14 +1,6 @@
 local lspconfig = require('lspconfig')
 local utils = require('lspconfig/util')
 
-lspconfig.pyright.setup {}
-lspconfig.ts_ls.setup {}
-lspconfig.rust_analyzer.setup {
-	settings = {
-		['rust-analyzer'] = {},
-	},
-}
-
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -68,41 +60,7 @@ local lsp_config = {
 	end
 }
 
-require('mason-lspconfig').setup_handlers({
-	function(server_name)
-		require('lspconfig')[server_name].setup(lsp_config)
-	end,
-	lua_ls = function()
-		require('lspconfig').lua_ls.setup(vim.tbl_extend('force', lsp_config, {
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { 'vim' }
-					}
-				}
-			}
-		}))
-	end,
-})
-
-lspconfig.gopls.setup({
-	capabilities = capabilities,
-	cmd = {
-		"gopls",
-	},
-	filetypes = { "go", "gomod", "gowork", "gotmpl" },
-	root_dir = utils.root_pattern("go.work", "go.mod", ".git"),
-	settings = {
-		gopls = {
-			completeUnimported = true,
-			usePlaceholders = true,
-		},
-	},
-})
-
 vim.keymap.set('n', '<leader>o', '<cmd>TypescriptOrganizeImports<cr>')
 vim.keymap.set('n', '<leader>a', '<cmd>TypescriptAddMissingImports<cr>')
 vim.keymap.set('n', '<leader>r', '<cmd>TypescriptRemoveUnused<cr>')
 
--- OCaml
-vim.opt.rtp:append("/Users/rahulnavneeth/.opam/default/share/ocp-indent/vim")

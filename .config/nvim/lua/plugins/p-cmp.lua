@@ -2,8 +2,6 @@ local cmp = require("cmp")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
--- vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#191724", fg = "#e0def4" })
-vim.api.nvim_set_hl(0, "CmpCursorLine", { bg = "#eeff2e", fg = "#16181a" })
 
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
