@@ -62,11 +62,6 @@
 		vimPlugins.friendly-snippets
 		vimPlugins.undotree
 		vimPlugins.harpoon
-		vimPlugins.presence-nvim
-		vimPlugins.mason-lspconfig-nvim
-		vimPlugins.gitsigns-nvim
-		vimPlugins.nvim-autopairs
-		vimPlugins.comment-nvim
 
 		# ZSH
 		zsh-history-substring-search
