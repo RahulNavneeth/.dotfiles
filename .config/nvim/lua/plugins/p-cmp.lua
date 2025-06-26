@@ -1,3 +1,16 @@
+load('nvim-autopairs')
+require('nvim-autopairs').setup()
+
+load('nvim-cmp')
+load('cmp-nvim-lsp')
+load('luasnip')
+load('cmp_luasnip')
+load('friendly-snippets')
+
+load('comment.nvim')
+require('Comment').setup()
+
+load('cmp')
 local cmp = require("cmp")
 
 require("luasnip.loaders.from_vscode").lazy_load()

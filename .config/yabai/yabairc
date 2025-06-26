@@ -3,10 +3,10 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # Padding and border settings
-yabai -m config top_padding 20
-yabai -m config bottom_padding 20
-yabai -m config left_padding 20
-yabai -m config right_padding 20
+yabai -m config top_padding 0
+yabai -m config bottom_padding 0
+yabai -m config left_padding 0
+yabai -m config right_padding 0
 
 # yabai -m config top_padding 0
 # yabai -m config bottom_padding 0
@@ -27,22 +27,24 @@ yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
 yabai -m mouse_drop_action swap
 
-# Rules for managing specific apps
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^Karabiner-Elements$" manage=off
-yabai -m rule --add app="^Brave Browser$" title=".*Private.*" manage=off
-yabai -m rule --add app="^Google Chrome$" title=".*Incognito.*" manage=off
-yabai -m rule --add app="^Arc$" title=".*Private.*" manage=off
-yabai -m rule --add app="^Photo Booth$" manage=off
-yabai -m rule --add app="Finder" manage=off
-yabai -m rule --add role="AXDialog" manage=off
-yabai -m rule --add role="AXSheet" manage=off
-yabai -m rule --add title="Preferences" manage=off
-yabai -m rule --add title="Settings" manage=off
-yabai -m rule --add title="Alert" manage=off
-yabai -m rule --add title="Pop-up" manage=off
-yabai -m rule --add title="Obsidian" manage=off
-yabai -m rule --add app="Finder" title="^Open" manage=off
-yabai -m rule --add app="Finder" subrole="AXSystemDialog" manage=off
-yabai -m rule --add app="Finder" role="AXDialog" manage=off
+# Rules for managing specific apps - Updated grid: 10:10:1.5:1.5:7:7 (70% of screen, centered)
+yabai -m rule --add app="^System Settings$" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="^Calculator$" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="^Karabiner-Elements$" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="^Brave Browser$" title=".*Private.*" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="^Google Chrome$" title=".*Incognito.*" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="^Arc$" title=".*Private.*" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="^Photo Booth$" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="Finder" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="IINA" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="IINA Player" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add role="AXDialog" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add role="AXSheet" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add title="Preferences" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add title="Settings" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add title="Alert" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add title="Pop-up" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add title="Obsidian" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="Finder" title="^Open" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="Finder" subrole="AXSystemDialog" manage=off grid=10:10:1.5:1.5:7:7
+yabai -m rule --add app="Finder" role="AXDialog" manage=off grid=10:10:1.5:1.5:7:7

@@ -33,13 +33,20 @@ api.nvim_set_keymap('n', 'cls', ":noh<CR>", { noremap = true })
 
 -- vim.api.nvim_set_keymap('n', '<space>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
-
-vim.keymap.set({ 'n', 'v', 'x' }, 'g-', function()
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-x>', true, false, true), 'n', true)
-end, { noremap = true, silent = true })
-
-vim.keymap.set({ 'n', 'v', 'x' }, 'g+', function()
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-a>', true, false, true), 'n', true)
-end, { noremap = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, '<C-k>', '<C-a>', { noremap = true })
+vim.keymap.set({ 'n', 'x' }, 'g<C-k>', 'g<C-a>', { noremap = true })
 
 vim.api.nvim_command('command! W noautocmd w')
+
+vim.api.nvim_create_user_command("Ex", function()
+	require("oil").open()
+end, {})
+
+vim.api.nvim_create_user_command("Sex", function()
+	require("oil").open_float()
+end, {})
+
+vim.api.nvim_create_user_command("Vex", function()
+	vim.cmd("vsplit")
+	require("oil").open()
+end, {})

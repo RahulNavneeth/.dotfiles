@@ -1,3 +1,4 @@
+load('mason.nvim')
 require("mason").setup({
     ui = {
         icons = {
@@ -8,6 +9,7 @@ require("mason").setup({
     }
 })
 
+load('mason-lspconfig.nvim')
 require("mason-lspconfig").setup({
     ensure_installed = {
         'lua_ls'

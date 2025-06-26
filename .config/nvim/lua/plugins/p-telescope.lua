@@ -1,3 +1,6 @@
+load('plenary.nvim')
+load('telescope.nvim')
+require("telescope").setup{}
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<space>ff', builtin.find_files, {})
 vim.keymap.set('n', '<space>fg', builtin.live_grep, {})
@@ -16,10 +19,11 @@ telescope.setup({
 		sorting_strategy     = 'ascending',
 		layout_strategy      = 'horizontal',
 		layout_config        = {
-			width = 0.75,
-			height = 0.75,
+			width = 0.85,
+			height = 0.85,
 			prompt_position = "bottom",
-			preview_cutoff = 120,
+			preview_cutoff = 1,
+			preview_width = 0.5,
 		},
 		path_display         = { "smart" },
 		winblend             = 0,
@@ -50,12 +54,12 @@ telescope.setup({
 		pickers              = {
 			find_files = {
 				hidden = true,
-				previewer = false,
+				previewer = true,
 				layout_config = {
 					horizontal = {
-						width = 0.5,
-						height = 0.4,
-						preview_width = 0.6,
+						width = 0.85,
+						height = 0.85,
+						preview_width = 0.5,
 					},
 				},
 			},

@@ -1,6 +1,3 @@
-local lspconfig = require('lspconfig')
-local utils = require('lspconfig/util')
-
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -40,27 +37,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end,
 })
 
-local on_attach = function(_, bufnr)
-	-- format on save
-	vim.api.nvim_create_autocmd('BufWritePre', {
-		buffer = bufnr,
-		callback = function()
-			vim.lsp.buf.format()
-		end
-	})
-end
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-local lsp_config = {
-	group = vim.api.nvim_create_augroup('LspFormatting', { clear = true }),
-	capabilities = capabilities,
-	on_attach = function(_, bufnr)
-		on_attach(_, bufnr)
-	end
-}
-
 vim.keymap.set('n', '<leader>o', '<cmd>TypescriptOrganizeImports<cr>')
 vim.keymap.set('n', '<leader>a', '<cmd>TypescriptAddMissingImports<cr>')
 vim.keymap.set('n', '<leader>r', '<cmd>TypescriptRemoveUnused<cr>')
-

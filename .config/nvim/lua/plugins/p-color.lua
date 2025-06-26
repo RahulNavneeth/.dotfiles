@@ -1,1 +1,3 @@
-vim.cmd('colorscheme default')
+load('gruber-darker.nvim')
+load('transparent.nvim')
+vim.cmd("colorscheme gruber-darker")

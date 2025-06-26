@@ -11,7 +11,7 @@ local options = {
 	pumheight = 10,
 	showmode = true,
 	showtabline = 0,
-	tabline = '%=%#MyTabLabelForeground# %{&modified ? "🌻*" : "🌻"}%=',
+	tabline = '%=%#MyTabLabelForeground# %{&modified ? "*" : ""}%=',
 	smartcase = true,
 	smartindent = true,
 	splitbelow = true,

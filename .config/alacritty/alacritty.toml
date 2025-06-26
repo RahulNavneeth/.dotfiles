@@ -2,9 +2,10 @@
 TERM = "xterm-256color"
 
 [window]
-padding = { x = 20, y = 0 }
+padding = { x = 10, y = 10 }
 dynamic_padding = false
-opacity = 1.0
+opacity = 0.95
+blur = true
 decorations = "buttonless"
 title = "Alacritty"
 class = { instance = "Alacritty", general = "Alacritty" }
@@ -13,56 +14,56 @@ class = { instance = "Alacritty", general = "Alacritty" }
 history = 5000
 
 [font]
-size = 23.0
+size = 26.0
 offset = { x = 0, y = 1 }
 
 [font.normal]
-family = "SF Mono"
+family = "Iosevka Term"
 style = "Regular"
 
 [font.bold]
-family = "Menlo"
-style = "Bold"
+family = "Iosevka Term"
+style = "Regular"
 
 [font.italic]
-family = "Menlo"
+family = "Iosevka Term"
 style = "Italic"
 
 [font.bold_italic]
-family = "Menlo"
+family = "Iosevka Term"
 style = "Bold Italic"
 
 [colors.primary]
-background = "0x16181a"
-foreground = "0xffffff"
+background = "0x181818"
+foreground = "0xe4e4ef"
 
 [colors.cursor]
-background = "0xffffff"
-foreground = "0x16181a"
+background = "0xe4e4ef"
+foreground = "0x181818"
 
 [colors.selection]
-background = "0x3c4048"
-foreground = "0xffffff"
+background = "0x444444"
+foreground = "0xe4e4ef"
 
 [colors.normal]
-black = "0x16181a"
-red = "0xff6e5e"
-green = "0x5eff6c"
-yellow = "0xf1ff5e"
-blue = "0x5ea1ff"
-magenta = "0xbd5eff"
-cyan = "0x5ef1ff"
-white = "0xffffff"
+black   = "0x181818"
+red     = "0xff7373"
+green   = "0x86b187"
+yellow  = "0xffdd33"
+blue    = "0x90a4f0"
+magenta = "0xe799ff"
+cyan    = "0x93e0e3"
+white   = "0xe4e4ef"
 
 [colors.bright]
-black = "0x3c4048"
-red = "0xff6e5e"
-green = "0x5eff6c"
-yellow = "0xf1ff5e"
-blue = "0x5ea1ff"
-magenta = "0xbd5eff"
-cyan = "0x5ef1ff"
-white = "0xffffff"
+black   = "0x444444"
+red     = "0xff7373"
+green   = "0xa7ff9d"
+yellow  = "0xffff87"
+blue    = "0xaaccff"
+magenta = "0xf0afff"
+cyan    = "0xa7ffff"
+white   = "0xffffff"
 
 [cursor]
 style = "Block"
@@ -169,12 +170,9 @@ chars = "\u001bf"
 [[keyboard.bindings]]
 key = "Left"
 mods = "Command"
-chars = "\u001bOH"
-mode = "AppCursor"
+chars = "\u0001"
 
 [[keyboard.bindings]]
 key = "Right"
 mods = "Command"
-chars = "\u001bOF"
-mode = "AppCursor"
-
+chars = "\u0005"
