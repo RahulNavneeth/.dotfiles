@@ -43,6 +43,9 @@
 		docker_26
 		mediamtx
 
+		# YASKELL
+		haskellPackages.threadscope
+
 		# NVIM
 		vimPlugins.gruber-darker-nvim
 		vimPlugins.telescope-nvim
@@ -79,33 +82,99 @@
 	];
 
 	# SHELL
-	programs.zsh = {
-	  enable = true;
-	  enableCompletion = true;
-	  interactiveShellInit = ''
+programs.zsh = {
+  enable = true;
+  enableCompletion = true;
+  
+  # Use promptInit for the prompt configuration
+  promptInit = ''
+    # Enable prompt substitution
+    setopt PROMPT_SUBST
+    
+    # Git branch function
+    git_branch() {
+      local branch
+      branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+      if [[ -n "$branch" ]]; then
+        echo " (%F{green}$branch%f)"
+      fi
+    }
 
-	    alias glp="git log --pretty=format:'%C(yellow)%h%Creset - %C(green)%an%Creset, %ar : %s'"
-	    alias gua="~/.local/bin/scripts/git-assume-unchanged.sh"
-	    alias ll="ls -la"
-	
-	    export VI_MODE_SET_CURSOR=true
-	    export PATH="/usr/local/bin:$PATH"
-	    export EDITOR="nvim"
-	    export VISUAL="nvim"
-	    export GIT_EDITOR="nvim"
-	
-	    touchp() {
-	      f="$1"
-	      d="$(dirname "$f")"
-	      mkdir -p "$d" && touch "$f"
-	    }
+    # Relative path function (show path relative to home)
+    relative_path() {
+      local current_path="''${PWD/#''$HOME/~}"
+      echo "%F{blue}$current_path%f"
+    }
 
-	    source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-	    source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	    source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-	  '';
-	};
+    # Nix shell indicator
+    nix_shell_indicator() {
+      if [[ -n "$IN_NIX_SHELL" ]]; then
+        echo "%F{yellow}[nix-shell]%f "
+      fi
+    }
 
+    # Set the custom prompt
+    PROMPT='$(nix_shell_indicator)$(relative_path)$(git_branch) %# '
+  '';
+  
+  interactiveShellInit = ''
+    # Existing aliases
+    alias glp="git log --pretty=format:'%C(yellow)%h%Creset - %C(green)%an%Creset, %ar : %s'"
+    alias gua="~/.local/bin/scripts/git-assume-unchanged.sh"
+    alias ll="ls -la"
+
+    # Existing exports
+    export VI_MODE_SET_CURSOR=true
+    export PATH="/usr/local/bin:$PATH"
+    export EDITOR="nvim"
+    export VISUAL="nvim"
+    export GIT_EDITOR="nvim"
+
+    # Existing function
+    touchp() {
+      f="$1"
+      d="$(dirname "$f")"
+      mkdir -p "$d" && touch "$f"
+    }
+
+    # History configuration for better prefix search
+    HISTSIZE=10000
+    SAVEHIST=10000
+    setopt HIST_FIND_NO_DUPS
+    setopt HIST_IGNORE_ALL_DUPS
+    setopt HIST_SAVE_NO_DUPS
+    setopt SHARE_HISTORY
+    setopt APPEND_HISTORY
+    setopt INC_APPEND_HISTORY
+
+    # Load plugins in the correct order
+    # 1. First load vi-mode
+    source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+    
+    # 2. Then load history substring search
+    source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+    
+    # 3. Load syntax highlighting last (it should be loaded after all other plugins)
+    source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+    # History substring search configuration (must be after sourcing the plugin)
+    HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=white,bold'
+    HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold'
+    HISTORY_SUBSTRING_SEARCH_FUZZY=0
+    HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
+    # Set up key bindings after vi-mode is initialized
+    zvm_after_init() {
+      # Bind Up/Down arrow keys for history substring search
+      bindkey "^[[A" history-substring-search-up
+      bindkey "^[[B" history-substring-search-down
+    }
+
+    # Also set up bindings for non-vi mode users as fallback
+    bindkey "^[[A" history-substring-search-up
+    bindkey "^[[B" history-substring-search-down
+  '';
+};
 	environment.shells = [ pkgs.zsh ];
 
 	users.users.rahulmnavneeth = {
