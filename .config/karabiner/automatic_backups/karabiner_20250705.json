@@ -13,7 +13,7 @@
                                 },
                                 "to": [
                                     {
-                                        "hold_down_milliseconds": 10,
+                                        "hold_down_milliseconds": 100,
                                         "key_code": "left_option"
                                     }
                                 ],

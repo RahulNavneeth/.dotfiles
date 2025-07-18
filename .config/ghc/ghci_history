@@ -1,100 +1,100 @@
 :q
 exit
-main
-:q
-;q
-:r
-main
-main
-:r
-man
-:r
-main
-:r
-main
-:r
-main
-:r
-main
-main
-:q
-main
-:r
-main
-:r
-main
-:r
-main
-main
-:r
-main
-:r
-:r
-main
-:q
-:r
-main
-:q
-main
-:r
-;r
-main
-:r
-clear
-main
-:r
-main
-:r
-main
-:r
-main
-:q
-:r
-main
-:q
-main
-main
-:q
-main
-:r
-main
-main
-:q
-clear
-length [1..110]
-length [1.110]
-:q
-q;
-main
-:q
-:
-:r
-main
-main
-:q
+:t max
+:t max
+:i exp
+xs:x
+x = [1..10]
+!clear
 exit
-:t sqrt
+:t Hautograd
+:!clear
+:i V.singleton
+:t V.singleton
+:i V
+:t V
+import qualified Data.Vector as V
+import qualifed Data.Vector as V
+:t Vector
+:t negate
+:i Num
+:t Num
+:t Num
 :q
-main
-:r
-main
-:q
-:r
-main
-:r
-main
-:r
-main
-:q
-:r
-main
-:q
-main
-:q
-main
-:q
-:t True
-:q
+:qa
+clear
+.exit
+quit
 exit
+exit
+concat z
+concat z
+z
+z = [[1..100], [2..200]]
+z = [[1..100], [2..200][
+:q
+:t unlines
+:t lines
+:t getLine
+:t getLines
+:t getLine
+main
+:e
+:e
+:e
+:set editor nvim
+:q
 main
 :r
+main
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:r
+:q
+:q
+:q
+:q
+:t Eval a
+:t a
+data Eval a
+:sprint x
+sum x
+sum xs
+:sprint x
+length x
+:sprint x
+seq x ()
+:sprint x
+:!clear
+let x = map (+1) [1..10] :: [Int]
+let x = map (+x) [1..10] :: [Int]
+:q
+let x = map (+x) [1..10] :: [Int]
+let x = map (+x) [1..10]
+:!clear
+:!clera
+:sprint z
+seq z ()
+:sprint z
+let z = swap (x, x+1)
+import Data.Tuple
+:sprint x
+:sprint z
+z
+z
+seq z ()
+:sprint z
+let z = (x, x)
+let x = 1 + 2 :: Int
+:!clear
+:q
+:sprint x
+:sprint y
